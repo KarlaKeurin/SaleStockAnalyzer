@@ -1,4 +1,4 @@
-﻿using SaleStockAnalyzer.Controllers;
+﻿using SaleStockAnalyzer.Presenter;
 
 namespace SaleStockAnalyzer
 {
@@ -6,8 +6,8 @@ namespace SaleStockAnalyzer
     {
         static void Main(string[] args)
         {
-            MenuController menuController = new MenuController();
-            menuController.ShowMenu();
+            var menuOptions = new MenuOptions();
+            menuOptions.ShowMenu();
         }
     }
 }
