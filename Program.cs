@@ -1,4 +1,6 @@
 ﻿using SaleStockAnalyzer.Presenter;
+using SaleStockAnalyzer.Infrastructure;
+using SaleStockAnalyzer.Models;
 
 namespace SaleStockAnalyzer
 {
@@ -6,8 +8,12 @@ namespace SaleStockAnalyzer
     {
         static void Main(string[] args)
         {
-            var menuOptions = new MenuOptions();
-            menuOptions.ShowMenu();
+            var menu = new MenuController();
+            menu.Run();
+
+            var handler = new XmlHandler(); 
+            handler.Load();
+            handler.Read();
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class MenuOptions
     {
-        public void ShowMenu()
+        public string ShowMenu()
         {
             Console.WriteLine("=========== Sale Stock Analyzer ===========\n");
 
@@ -18,7 +18,12 @@
             Console.Write("Choose an option: ");
             var option = Console.ReadLine();
 
-            Console.WriteLine(option);
+            if (option == null)
+            {
+                return "No option selected.";
+            }
+
+            return option;
         }
     }
 }
