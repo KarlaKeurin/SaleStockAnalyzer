@@ -12,11 +12,12 @@ namespace SaleStockAnalyzer
             menuOptions.ShowMenu();
 
             var menu = new MenuController();
-            MenuController.ReportGeneration();
 
             var handler = new XmlHandler(); 
             handler.Load();
-            handler.GetProducts();
+            var products = handler.GetProducts();
+
+            MenuController.ReportGeneration(products);
         }
     }
 }

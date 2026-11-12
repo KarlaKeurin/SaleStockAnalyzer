@@ -1,13 +1,17 @@
-﻿namespace SaleStockAnalyzer.Presenter
+﻿using SaleStockAnalyzer.Models;
+using SaleStockAnalyzer.Services;
+
+namespace SaleStockAnalyzer.Presenter
 {
     public class MenuController
     {
-        public static void ReportGeneration()
+        public static void ReportGeneration(ProductsModel products)
         {
             Console.Write("Choose an option: ");
             var option = Console.ReadLine();
 
             //TODO: Code to refect in the future
+            BestSellingProductService bestSellingProduct = new BestSellingProductService();
 
             switch (option)
             {
@@ -18,7 +22,7 @@
                     Console.WriteLine("Total sales value of products in stock\r");
                     break;
                 case "3":
-                    Console.WriteLine("Best-selling product\r");
+                    bestSellingProduct.ShowBestSellingProduct(products);
                     break;
                 case "4":
                     Console.WriteLine("Most profitable product\r");
