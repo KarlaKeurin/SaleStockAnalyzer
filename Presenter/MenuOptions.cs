@@ -14,11 +14,6 @@
             Console.WriteLine("6 - Out-of-stock products\r");
             Console.WriteLine("7 - Execute all options\r");
             Console.WriteLine("8 - Exit\n");
-
-            Console.Write("Choose an option: ");
-            var option = Console.ReadLine();
-
-            Console.WriteLine(option);
         }
     }
 }
