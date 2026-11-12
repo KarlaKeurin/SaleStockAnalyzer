@@ -8,12 +8,15 @@ namespace SaleStockAnalyzer
     {
         static void Main(string[] args)
         {
+            var menuOptions = new MenuOptions();
+            menuOptions.ShowMenu();
+
             var menu = new MenuController();
-            menu.Run();
+            MenuController.ReportGeneration();
 
             var handler = new XmlHandler(); 
             handler.Load();
-            handler.Read();
+            handler.GetProducts();
         }
     }
 }

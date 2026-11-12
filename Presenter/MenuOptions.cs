@@ -2,7 +2,7 @@
 {
     public class MenuOptions
     {
-        public string ShowMenu()
+        public void ShowMenu()
         {
             Console.WriteLine("=========== Sale Stock Analyzer ===========\n");
 
@@ -14,16 +14,6 @@
             Console.WriteLine("6 - Out-of-stock products\r");
             Console.WriteLine("7 - Execute all options\r");
             Console.WriteLine("8 - Exit\n");
-
-            Console.Write("Choose an option: ");
-            var option = Console.ReadLine();
-
-            if (option == null)
-            {
-                return "No option selected.";
-            }
-
-            return option;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SaleStockAnalyzer.Infrastructure
             return XDocument.Load(filePath);
         }
 
-        public void Read()
+        public ProductsModel GetProducts()
         {
             var doc = Load();
 
@@ -47,6 +47,8 @@ namespace SaleStockAnalyzer.Infrastructure
 
                 products.Products.Add(product);
             }
+
+            return products;
         }
     }
 }

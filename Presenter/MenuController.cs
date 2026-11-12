@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SaleStockAnalyzer.Presenter
+﻿namespace SaleStockAnalyzer.Presenter
 {
     public class MenuController
     {
-        private readonly MenuOptions _menuOptions;
-        public MenuController()
+        public static void ReportGeneration()
         {
-            _menuOptions = new MenuOptions();
-        }
+            Console.Write("Choose an option: ");
+            var option = Console.ReadLine();
 
-        public void Run()
-        {
-            string option = _menuOptions.ShowMenu();
+            //TODO: Code to refect in the future
 
             switch (option)
             {
