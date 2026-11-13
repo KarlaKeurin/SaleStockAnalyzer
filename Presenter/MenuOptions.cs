@@ -2,7 +2,7 @@
 {
     public class MenuOptions
     {
-        public void ShowMenu()
+        public static int ShowMenu()
         {
             Console.WriteLine("=========== Sale Stock Analyzer ===========\n");
 
@@ -14,6 +14,15 @@
             Console.WriteLine("6 - Out-of-stock products\r");
             Console.WriteLine("7 - Execute all options\r");
             Console.WriteLine("8 - Exit\n");
+
+            Console.Write("\nSelect an option: ");
+
+            if (!int.TryParse(Console.ReadLine(), out int option))
+            {
+                return -1;
+            }
+
+            return option;
         }
     }
 }

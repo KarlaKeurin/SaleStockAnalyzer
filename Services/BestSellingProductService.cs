@@ -1,8 +1,11 @@
 ﻿using SaleStockAnalyzer.Models;
+using SaleStockAnalyzer.Services.Interfaces;
+using System.ComponentModel.Composition;
 
 namespace SaleStockAnalyzer.Services
 {
-    public class BestSellingProductService
+    [Export(typeof(IBestSellingProductService))]
+    public class BestSellingProductService : IBestSellingProductService
     {
         public void ShowBestSellingProduct(ProductsModel products)
         {
