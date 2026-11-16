@@ -13,9 +13,9 @@
             return $"""
                 Id: {Id}
                 Name: {Name}
-                Sold Quantity: {SalesInformation.SoldQuantity}
+                Sold Quantity: {SalesInformation!.SoldQuantity}
                 In Stock Quantity: {SalesInformation.InStockQuantity}
-                Description: {Details.Description.Trim()}
+                Description: {Details!.Description!.Trim()}
                 Price: {Details.Price}
                 Modification Date: {ModificationDate:dd-MM-yyyy HH:mm:ss}
                 """;
