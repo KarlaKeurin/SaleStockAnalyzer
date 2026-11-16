@@ -13,6 +13,9 @@ namespace SaleStockAnalyzer.Controller
         [Import]
         public IQuantityOfProductsInStockService QuantityOfProductsInStock { get; set; }
 
+        [Import]
+        public ITotalSalesValueOfProductsInStockService TotalSalesValueOfProductsInStockService { get; set; }
+
         public void ReportGeneration(ProductsModel products, int option)
         {
             switch ((MenuOptionsEnum)option)
@@ -21,12 +24,14 @@ namespace SaleStockAnalyzer.Controller
                     QuantityOfProductsInStock.ShowQuantityOfProductsInStockService(products);
                     break;
 
+                case MenuOptionsEnum.TotalSalesValueOfProductsInStock:
+                    TotalSalesValueOfProductsInStockService.ShowTotalSalesValueOfProductsInStock(products);
+                    break;
+
                 case MenuOptionsEnum.BestSellingProduct:
                     BestSellingProduct.ShowBestSellingProduct(products);
                     break;
 
-                
-                case MenuOptionsEnum.TotalSalesValueOfProductsInStock:
                 case MenuOptionsEnum.MostProfitableProduct:
                 case MenuOptionsEnum.ProductsThatHaveNotBeenSold:
                 case MenuOptionsEnum.OutOfStockProducts:
