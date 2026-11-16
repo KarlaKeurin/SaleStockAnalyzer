@@ -18,7 +18,6 @@ namespace SaleStockAnalyzer.Services
         {
             int inStockQuantity = 0;
 
-
             foreach (ProductModel product in products.Products)
             {
                 int inStock = product.SalesInformation!.InStockQuantity;
