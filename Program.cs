@@ -4,6 +4,7 @@ using SaleStockAnalyzer.Models;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition;
 using SaleStockAnalyzer.Controller;
+using SaleStockAnalyzer.Services;
 
 namespace SaleStockAnalyzer
 {
@@ -21,7 +22,10 @@ namespace SaleStockAnalyzer
 
             var handler = new XmlHandler(); 
             handler.Load();
-            var products = handler.GetProducts();
+            var productsXml = handler.GetProducts();
+
+            var productsListDeduplicated = new DeduplicationService();
+            var products = productsListDeduplicated.FilterProductsByModificationDate(productsXml);
 
             reportController.ReportGeneration(products, option);
         }
