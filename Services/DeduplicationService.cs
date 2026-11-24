@@ -2,7 +2,6 @@
 using SaleStockAnalyzer.Models;
 using SaleStockAnalyzer.Services.Interfaces;
 using System.ComponentModel.Composition;
-using System.Xml.Linq;
 
 namespace SaleStockAnalyzer.Services
 {
@@ -11,25 +10,34 @@ namespace SaleStockAnalyzer.Services
     {
         public ProductsModel FilterProductsByModificationDate(ProductsModel products)
         {
-            var groupById = products.Products
-                .GroupBy(x => x.Id);
+            List<ProductModel> productsList = new List<ProductModel>();
 
-            var filterByDuplicateModificationDate = groupById
-                .Where(g => g.Select(x => x.ModificationDate).Distinct().Count() < g.Count())
-                .ToList();
-
-            if (filterByDuplicateModificationDate.Any())
+            foreach (var product in products.Products)
             {
-                Console.WriteLine("Aqui");
-            }
+                var duplicateId = false;
 
-            var result = groupById
-                .Select(x => x.MaxBy(product => product.ModificationDate))
-                .ToList();
+                for (int i = 0; i < productsList.Count; i++)
+                {
+                    if (product.Id == productsList[i].Id)
+                    {
+                        duplicateId = true;
+
+                        if (product.ModificationDate > productsList[i].ModificationDate)
+                        {
+                            productsList[i] = product;
+                        }
+                    }
+                }
+
+                if (!duplicateId)
+                {
+                    productsList.Add(product);
+                }
+            }
 
             return new ProductsModel
             {
-                Products = result
+                Products = productsList
             };
         }
     }
