@@ -21,17 +21,14 @@ namespace SaleStockAnalyzer.Controller
             switch ((MenuOptionsEnum)option)
             {
                 case MenuOptionsEnum.QuantityOfProductsInStock:
-                    Console.WriteLine("\n=========== Quantity of products in stock ===========\n");
                     QuantityOfProductsInStock.ShowQuantityOfProductsInStockService(products);
                     break;
 
                 case MenuOptionsEnum.TotalSalesValueOfProductsInStock:
-                    Console.WriteLine("\n=========== Total value of products in stock ===========\n");
                     TotalSalesValueOfProductsInStockService.ShowTotalSalesValueOfProductsInStock(products);
                     break;
 
                 case MenuOptionsEnum.BestSellingProduct:
-                    Console.WriteLine("\n=========== Best-selling product ===========\n");
                     BestSellingProduct.ShowBestSellingProduct(products);
                     break;
 

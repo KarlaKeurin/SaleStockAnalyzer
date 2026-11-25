@@ -32,8 +32,8 @@ namespace SaleStockAnalyzer
                 Console.Clear();
 
                 var productsXml = handler.GetProducts();
-                var productsListDeduplicated = new DeduplicationService();
-                var products = productsListDeduplicated.FilterProductsByModificationDate(productsXml);
+                var productsListDeduplicated = new DeduplicationProductsService();
+                var products = productsListDeduplicated.RemoveDuplicatedProducts(productsXml);
                 
                 reportController.ReportGeneration(products, option);
 

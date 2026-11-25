@@ -10,7 +10,9 @@ namespace SaleStockAnalyzer.Services
         public void ShowTotalSalesValueOfProductsInStock(ProductsModel products)
         {
             double totalSalesValueOfProductsInStock = GetTotalSalesValueOfProductsInStock(products);
+            string title = "\n=========== Total value of products in stock ===========\n";
 
+            Console.WriteLine(title);
             Console.WriteLine($"Total value of products in stock: {totalSalesValueOfProductsInStock}\n");
         }
 
