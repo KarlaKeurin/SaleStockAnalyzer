@@ -11,7 +11,7 @@ namespace SaleStockAnalyzer.Services
         {
             double totalSalesValueOfProductsInStock = GetTotalSalesValueOfProductsInStock(products);
 
-            Console.WriteLine($"\nTotal value of products in stock: {totalSalesValueOfProductsInStock}\n");
+            Console.WriteLine($"Total value of products in stock: {totalSalesValueOfProductsInStock}\n");
         }
 
         private double GetTotalSalesValueOfProductsInStock(ProductsModel products)

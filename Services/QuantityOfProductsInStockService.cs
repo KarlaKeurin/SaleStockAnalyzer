@@ -11,7 +11,7 @@ namespace SaleStockAnalyzer.Services
         {
             int quantityOfProductsInStock = GetQuantityOfProductsInStock(products);
             
-            Console.WriteLine($"\nQuantity of products in stock: {quantityOfProductsInStock}\n");
+            Console.WriteLine($"Quantity of products in stock: {quantityOfProductsInStock}\n");
         }
 
         private int GetQuantityOfProductsInStock(ProductsModel products)

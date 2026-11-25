@@ -1,10 +1,11 @@
-﻿using SaleStockAnalyzer.Presenter;
+﻿using SaleStockAnalyzer.Controller;
+using SaleStockAnalyzer.Enum;
 using SaleStockAnalyzer.Infrastructure;
 using SaleStockAnalyzer.Models;
-using System.ComponentModel.Composition.Hosting;
-using System.ComponentModel.Composition;
-using SaleStockAnalyzer.Controller;
+using SaleStockAnalyzer.Presenter;
 using SaleStockAnalyzer.Services;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 
 namespace SaleStockAnalyzer
 {
@@ -18,16 +19,32 @@ namespace SaleStockAnalyzer
             var reportController = new ReportController();
             container.ComposeParts(reportController);
 
-            var option = MenuOptions.ShowMenu();
+            MenuOptionsEnum menuEnum;
 
-            var handler = new XmlHandler(); 
-            handler.Load();
-            var productsXml = handler.GetProducts();
+            do
+            {
+                var option = MenuOptions.ShowMenu();
+                menuEnum = (MenuOptionsEnum)option;
 
-            var productsListDeduplicated = new DeduplicationService();
-            var products = productsListDeduplicated.FilterProductsByModificationDate(productsXml);
+                var handler = new XmlHandler(); 
+                handler.Load();
 
-            reportController.ReportGeneration(products, option);
+                Console.Clear();
+
+                var productsXml = handler.GetProducts();
+                var productsListDeduplicated = new DeduplicationService();
+                var products = productsListDeduplicated.FilterProductsByModificationDate(productsXml);
+                
+                reportController.ReportGeneration(products, option);
+
+                if (menuEnum != MenuOptionsEnum.Exit)
+                {
+                    Console.WriteLine("\nPress any key to return to the menu options...");
+                    Console.ReadKey();
+                }
+
+                Console.Clear();
+            } while (menuEnum != MenuOptionsEnum.Exit);
         }
     }
 }
