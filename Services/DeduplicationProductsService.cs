@@ -5,10 +5,10 @@ using System.ComponentModel.Composition;
 
 namespace SaleStockAnalyzer.Services
 {
-    [Export(typeof(IDeduplicationService))]
-    public class DeduplicationService : IDeduplicationService
+    [Export(typeof(IDeduplicationProductsService))]
+    public class DeduplicationProductsService : IDeduplicationProductsService
     {
-        public ProductsModel FilterProductsByModificationDate(ProductsModel products)
+        public ProductsModel RemoveDuplicatedProducts(ProductsModel products)
         {
             List<ProductModel> productsList = new List<ProductModel>();
 

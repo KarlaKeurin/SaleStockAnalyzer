@@ -10,7 +10,9 @@ namespace SaleStockAnalyzer.Services
         public void ShowBestSellingProduct(ProductsModel products)
         {
             ProductModel bestSellingProduct = GetBestSellingProduct(products);
+            string title = "\n=========== Best-selling product ===========\n";
 
+            Console.WriteLine(title);
             Console.WriteLine(bestSellingProduct);
         }
 

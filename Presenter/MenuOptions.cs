@@ -4,7 +4,7 @@
     {
         public static int ShowMenu()
         {
-            Console.WriteLine("=========== Sale Stock Analyzer ===========\n");
+            Console.WriteLine("\n=========== Sale Stock Analyzer ===========\n");
 
             Console.WriteLine("1 - Quantity of products in stock");
             Console.WriteLine("2 - Total sales value of products in stock\r");
@@ -15,7 +15,7 @@
             Console.WriteLine("7 - Execute all options\r");
             Console.WriteLine("8 - Exit\n");
 
-            Console.Write("\nSelect an option: ");
+            Console.Write("Select an option: ");
 
             if (!int.TryParse(Console.ReadLine(), out int option))
             {
