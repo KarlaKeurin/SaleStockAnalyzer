@@ -16,6 +16,9 @@ namespace SaleStockAnalyzer.Controller
         [Import]
         public ITotalSalesValueOfProductsInStockService TotalSalesValueOfProductsInStockService { get; set; }
 
+        [Import]
+        public IMostProfitableProductService MostProfitableProductService { get; set; }
+
         public void ReportGeneration(ProductsModel products, int option)
         {
             switch ((MenuOptionsEnum)option)
@@ -33,6 +36,9 @@ namespace SaleStockAnalyzer.Controller
                     break;
 
                 case MenuOptionsEnum.MostProfitableProduct:
+                    MostProfitableProductService.ShowMostProfitableProduct(products);
+                    break;
+
                 case MenuOptionsEnum.ProductsThatHaveNotBeenSold:
                 case MenuOptionsEnum.OutOfStockProducts:
                 case MenuOptionsEnum.ExecuteAllOptions:

@@ -29,7 +29,7 @@ namespace SaleStockAnalyzer.Infrastructure
                     Details = new DetailsModel
                     {
                         Description = (string)element.Element("Details").Element("Description"),
-                        Price = (double)element.Element("Details").Element("Price")
+                        Price = (decimal)element.Element("Details").Element("Price")
                     },
 
                     SalesInformation = new SalesInformationModel

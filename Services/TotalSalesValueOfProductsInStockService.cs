@@ -9,18 +9,18 @@ namespace SaleStockAnalyzer.Services
     {
         public void ShowTotalSalesValueOfProductsInStock(ProductsModel products)
         {
-            double totalSalesValueOfProductsInStock = GetTotalSalesValueOfProductsInStock(products);
+            decimal totalSalesValueOfProductsInStock = GetTotalSalesValueOfProductsInStock(products);
 
             Console.WriteLine($"\nTotal value of products in stock: {totalSalesValueOfProductsInStock}\n");
         }
 
-        private double GetTotalSalesValueOfProductsInStock(ProductsModel products)
+        private decimal GetTotalSalesValueOfProductsInStock(ProductsModel products)
         {
-            double totalSalesValue = 0;
+            decimal totalSalesValue = 0;
 
             foreach (ProductModel productModel in products.Products)
             {
-                double price = productModel.Details!.Price;
+                decimal price = productModel.Details!.Price;
                 int stockQuantity = productModel.SalesInformation!.InStockQuantity;
 
                 totalSalesValue += price * stockQuantity;
